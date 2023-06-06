@@ -3,8 +3,8 @@ import 'package:go_router/go_router.dart';
 import 'package:neirodev/core/routes/route_names.dart';
 import 'package:neirodev/screens/age/age_screen.dart';
 import 'package:neirodev/screens/gender/gender_screen.dart';
-import 'package:neirodev/screens/main_screen.dart';
 import 'package:neirodev/screens/nationalize/nationalize_screen.dart';
+import 'package:neirodev/screens/neirodev/neirodev.dart';
 
 class AppRouter {
   static final _rootNavigatorKey = GlobalKey<NavigatorState>();
@@ -20,7 +20,7 @@ class AppRouter {
         ShellRoute(
             navigatorKey: _shellNavigatorKey,
             builder: (context, state, child) {
-              return MainScreen(child: child);
+              return Neirodev(child: child);
             },
             routes: [
               GoRoute(

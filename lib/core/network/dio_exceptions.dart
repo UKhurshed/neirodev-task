@@ -7,16 +7,16 @@ class DioExceptions implements Exception {
       case DioErrorType.cancel:
         return "Запрос к серверу API был отменен";
 
-      case DioErrorType.connectionTimeout:
+      case DioErrorType.connectTimeout:
         return "Тайм-аут соединения с сервером API";
 
-      case DioErrorType.connectionError:
+      case DioErrorType.other:
         return "При подключения к интернету произошел сбой";
 
       case DioErrorType.receiveTimeout:
         return "Тайм-аут получения в связи с сервером API";
 
-      case DioErrorType.unknown:
+      case DioErrorType.response:
         return handleError(
             dioError.response?.statusCode ?? 0, dioError.response?.data);
 
