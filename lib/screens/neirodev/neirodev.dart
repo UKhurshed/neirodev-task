@@ -4,6 +4,7 @@ import 'package:get_it/get_it.dart';
 import 'package:neirodev/core/routes/app_route.dart';
 import 'package:neirodev/core/routes/route_names.dart';
 import 'package:neirodev/screens/age/bloc/get_age_bloc.dart';
+import 'package:neirodev/screens/gender/bloc/get_gender_bloc.dart';
 import 'package:neirodev/screens/neirodev/bottom_navigation_cubit.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -17,6 +18,7 @@ class Neirodev extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(create: (context) => GetIt.I.get<GetAgeBloc>()),
+        BlocProvider(create: (context) => GetIt.I.get<GetGenderBloc>()),
       ],
       child: Scaffold(
         body: SafeArea(child: child),
