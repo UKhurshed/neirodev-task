@@ -18,7 +18,7 @@ class DioExceptions implements Exception {
 
       case DioErrorType.response:
         return handleError(
-            dioError.response?.statusCode ?? 0, dioError.response?.data);
+            dioError.response?.statusCode ?? 0);
 
       case DioErrorType.sendTimeout:
         return "Тайм-аут отправки в связи с сервером API";
@@ -28,7 +28,7 @@ class DioExceptions implements Exception {
     }
   }
 
-  static String handleError(int statusCode, dynamic error) {
+  static String handleError(int statusCode) {
     log('statusCode: $statusCode');
     switch (statusCode) {
       case 400:

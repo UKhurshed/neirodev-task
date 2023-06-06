@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:neirodev/core/extensions/screen_size.dart';
-import 'package:neirodev/screens/age/bloc/get_age_bloc.dart';
+import 'package:neirodev/screens/age/widgets/agify_button.dart';
+import 'package:neirodev/screens/age/widgets/name_textfield.dart';
+import 'package:neirodev/screens/age/widgets/user_info.dart';
 
 class AgeScreen extends StatelessWidget {
   const AgeScreen({super.key});
@@ -26,59 +27,24 @@ class _AgeViewState extends State<AgeView> {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.symmetric(horizontal: context.appWidth * 16.w),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          SizedBox(
-            height: context.appHeight * 50.h,
-            child: TextField(
-              controller: nameController,
-              decoration: InputDecoration(
-                  hintText: 'Введите имя',
-                  border: OutlineInputBorder(
-                      borderSide: const BorderSide(color: Color(0xFFCFCFCF)),
-                      borderRadius: BorderRadius.circular(8))),
-            ),
-          ),
-          SizedBox(height: context.appHeight * 20.h),
-          SizedBox(
-              height: context.appHeight * 50.h,
-              width: context.appWidth * 200.w,
-              child: BlocBuilder<GetAgeBloc, GetAgeState>(
-                builder: (context, state) {
-                  if (state is GetAgeProgress) {
-                    return const Center(child: CircularProgressIndicator());
-                  }
-                  return OutlinedButton(
-                      onPressed: () {
-                        if (nameController.text.isNotEmpty) {
-                          BlocProvider.of<GetAgeBloc>(context)
-                              .add(GetAge(name: nameController.text));
-                        }
-                      },
-                      style: ButtonStyle(
-                          backgroundColor: MaterialStateProperty.all(
-                              const Color(0xFFFF4444)),
-                          shape: MaterialStateProperty.all(
-                              RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(25)))),
-                      child: const Text('Угадайте возраст',
-                          style: TextStyle(fontSize: 16, color: Colors.white)));
-                },
-              )),
-          SizedBox(height: context.appHeight * 35.h),
-          BlocBuilder<GetAgeBloc, GetAgeState>(
-            builder: (context, state) {
-              var age = '';
-              if (state is GetAgeSuccess) {
-                age = state.ageModel.age.toString();
-              }
-              return Text('Age: $age');
-            },
-          )
-        ],
+    return SingleChildScrollView(
+      child: Padding(
+        padding: EdgeInsets.symmetric(horizontal: context.appWidth * 16.w),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            SizedBox(height: context.appHeight * 80.h),
+            Center(
+                child: Image.asset('assets/png/age_icon.png',
+                    height: context.appHeight * 150.h)),
+            SizedBox(height: context.appHeight * 50.h),
+            NameTextField(nameController: nameController),
+            SizedBox(height: context.appHeight * 20.h),
+            AgifyButton(nameController: nameController),
+            SizedBox(height: context.appHeight * 35.h),
+            const UserInfo()
+          ],
+        ),
       ),
     );
   }

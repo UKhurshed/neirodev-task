@@ -18,7 +18,7 @@ class GetAgeBloc extends Bloc<GetAgeEvent, GetAgeState> {
 
   _mapGetAge(event, emit) async {
     emit(GetAgeProgress());
-    final result = await ageRepository.getAgeByName(event.name);
+    final result = await ageRepository.getAgeByNameWithHTTP(event.name);
     if (result.errorMessage != null) {
       emit(GetAgeFailure(errorMessage: result.errorMessage!));
     } else {
