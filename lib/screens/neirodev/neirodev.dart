@@ -8,6 +8,7 @@ import 'package:neirodev/screens/gender/bloc/get_gender_bloc.dart';
 import 'package:neirodev/screens/nationalize/bloc/get_nationalize_bloc.dart';
 import 'package:neirodev/screens/neirodev/bottom_navigation_cubit.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class Neirodev extends StatelessWidget {
   const Neirodev({super.key, required this.child});
@@ -60,12 +61,16 @@ class AppBottomNavigation extends StatelessWidget {
               },
               selectedItemColor: Colors.purple,
               unselectedItemColor: Colors.black,
-              items: const [
+              items: [
                 BottomNavigationBarItem(
-                    icon: Icon(Icons.calendar_month_sharp), label: 'Возраст'),
-                BottomNavigationBarItem(icon: Icon(Icons.male), label: 'Пол'),
+                    icon: const Icon(Icons.calendar_month_sharp),
+                    label: AppLocalizations.of(context)!.age),
                 BottomNavigationBarItem(
-                    icon: Icon(Icons.people), label: 'Национальность')
+                    icon: const Icon(Icons.male),
+                    label: AppLocalizations.of(context)!.gender),
+                BottomNavigationBarItem(
+                    icon: const Icon(Icons.people),
+                    label: AppLocalizations.of(context)!.nationality)
               ]);
         },
       ),

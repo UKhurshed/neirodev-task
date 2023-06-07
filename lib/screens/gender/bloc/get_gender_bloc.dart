@@ -18,7 +18,7 @@ class GetGenderBloc extends Bloc<GetGenderEvent, GetGenderState> {
 
   _mapGetGender(event, emit) async {
     emit(GetGenderProgress());
-    final result = await genderRepository.getGenderByName(event.name);
+    final result = await genderRepository.getGenderByNameWithHTTP(event.name);
     if (result.errorMessage != null) {
       emit(GetGenderFailure(errorMessage: result.errorMessage!));
     } else {

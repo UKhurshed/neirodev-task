@@ -21,7 +21,7 @@ class GetNationalizeBloc
 
   _mapGetNationalize(event, emit) async {
     emit(GetNationalizeProgress());
-    final result = await nationalizeRepository.getNationalizeByName(event.name);
+    final result = await nationalizeRepository.getNationalizeByNameWithHTTP(event.name);
     if (result.errorMessage != null) {
       emit(GetNationalizeFailure(errorMessage: result.errorMessage!));
     } else {

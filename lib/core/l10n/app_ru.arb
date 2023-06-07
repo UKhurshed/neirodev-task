@@ -12,5 +12,13 @@
   "somethingWentWrongFailure": "Произошла ошибка, попробуйте снова!",
   "age": "Возраст",
   "gender": "Пол",
-  "nationalize": "Национальность"
+  "nationality": "Национальность",
+  "guessAge": "Угадайте возраст",
+  "name": "Имя",
+  "enterYourName": "Введите имя",
+  "guessGender": "Угадайте пол",
+  "male": "Мужчина",
+  "female": "Женщина",
+  "probability": "Вероятность",
+  "guessYourNationality": "Угадайте национальность"
 }

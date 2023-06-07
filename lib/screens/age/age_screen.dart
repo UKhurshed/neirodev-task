@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:neirodev/core/extensions/screen_size.dart';
 import 'package:neirodev/screens/age/widgets/agify_button.dart';
-import 'package:neirodev/screens/age/widgets/name_textfield.dart';
 import 'package:neirodev/screens/age/widgets/user_info.dart';
+import 'package:neirodev/screens/widgets/common_textfield.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class AgeScreen extends StatelessWidget {
   const AgeScreen({super.key});
@@ -38,7 +39,9 @@ class _AgeViewState extends State<AgeView> {
                 child: Image.asset('assets/png/age_icon.png',
                     height: context.appHeight * 150.h)),
             SizedBox(height: context.appHeight * 50.h),
-            NameTextField(nameController: nameController),
+            CommonTextField(
+                controller: nameController,
+                hint: AppLocalizations.of(context)!.enterYourName),
             SizedBox(height: context.appHeight * 20.h),
             AgifyButton(nameController: nameController),
             SizedBox(height: context.appHeight * 35.h),

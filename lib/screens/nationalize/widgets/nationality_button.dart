@@ -1,23 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:neirodev/core/extensions/screen_size.dart';
-import 'package:neirodev/screens/age/bloc/get_age_bloc.dart';
+import 'package:neirodev/screens/nationalize/bloc/get_nationalize_bloc.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-class AgifyButton extends StatelessWidget {
-  const AgifyButton({super.key, required this.nameController});
+class NationalityButton extends StatelessWidget {
+  const NationalityButton({super.key, required this.nationalityController});
 
-  final TextEditingController nameController;
+  final TextEditingController nationalityController;
 
   @override
   Widget build(BuildContext context) {
     return Center(
       child: SizedBox(
           height: context.appHeight * 50.h,
-          width: context.appWidth * 200.w,
-          child: BlocConsumer<GetAgeBloc, GetAgeState>(
+          width: context.appWidth * 250.w,
+          child: BlocConsumer<GetNationalizeBloc, GetNationalizeState>(
             listener: (context, state) {
-              if (state is GetAgeFailure) {
+              if (state is GetNationalizeFailure) {
                 ScaffoldMessenger.of(context).showSnackBar(SnackBar(
                     content: Text(
                       state.errorMessage,
@@ -30,14 +30,14 @@ class AgifyButton extends StatelessWidget {
               }
             },
             builder: (context, state) {
-              if (state is GetAgeProgress) {
+              if (state is GetNationalizeProgress) {
                 return const Center(child: CircularProgressIndicator());
               }
               return OutlinedButton(
                   onPressed: () {
-                    if (nameController.text.isNotEmpty) {
-                      BlocProvider.of<GetAgeBloc>(context)
-                          .add(GetAge(name: nameController.text));
+                    if (nationalityController.text.isNotEmpty) {
+                      BlocProvider.of<GetNationalizeBloc>(context).add(
+                          GetNationalize(name: nationalityController.text));
                     }
                   },
                   style: ButtonStyle(
@@ -45,8 +45,10 @@ class AgifyButton extends StatelessWidget {
                           MaterialStateProperty.all(const Color(0xFFFF4444)),
                       shape: MaterialStateProperty.all(RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(25)))),
-                  child:  Text(AppLocalizations.of(context)!.guessAge,
-                      style: const TextStyle(fontSize: 16, color: Colors.white)));
+                  child: Text(
+                      AppLocalizations.of(context)!.guessYourNationality,
+                      style:
+                          const TextStyle(fontSize: 16, color: Colors.white)));
             },
           )),
     );

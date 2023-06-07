@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:neirodev/core/extensions/screen_size.dart';
 import 'package:neirodev/screens/age/bloc/get_age_bloc.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class UserInfo extends StatelessWidget {
   const UserInfo({super.key});
@@ -21,9 +22,9 @@ class UserInfo extends StatelessWidget {
           children: [
             RichText(
               text: TextSpan(children: [
-                const TextSpan(
-                    text: 'Возраст: ',
-                    style: TextStyle(
+                TextSpan(
+                    text: '${AppLocalizations.of(context)!.age}: ',
+                    style: const TextStyle(
                         fontSize: 20,
                         color: Colors.black,
                         fontWeight: FontWeight.bold)),
@@ -38,9 +39,9 @@ class UserInfo extends StatelessWidget {
             SizedBox(height: context.appHeight * 12.h),
             RichText(
               text: TextSpan(children: [
-                const TextSpan(
-                    text: 'Имя: ',
-                    style: TextStyle(
+                 TextSpan(
+                    text: '${AppLocalizations.of(context)!.name}: ',
+                    style: const TextStyle(
                         fontSize: 20,
                         color: Colors.black,
                         fontWeight: FontWeight.bold)),

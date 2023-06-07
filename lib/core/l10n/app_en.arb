@@ -9,5 +9,17 @@
   "sendTimeOutFailure": "Sending timeout in connection with the API server",
   "badRequestFailure": "The URL request was incorrectly assembled",
   "notFoundFailure": "Resource not found",
-  "somethingWentWrongFailure": "An error has occurred, try again!"
+  "somethingWentWrongFailure": "An error has occurred, try again!",
+  "age": "Age",
+  "gender": "Gender",
+  "nationality": "Nationality",
+  "guessAge": "Guess the age",
+  "name": "Name",
+  "enterYourName": "Enter your name",
+  "guessGender": "Guess the gender",
+  "male": "Male",
+  "female": "Female",
+  "probability": "Probability",
+  "guessYourNationality": "Guess the nationality"
+
 }
