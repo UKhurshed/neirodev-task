@@ -8,7 +8,6 @@ import 'package:neirodev/screens/gender/bloc/get_gender_bloc.dart';
 import 'package:neirodev/screens/nationalize/bloc/get_nationalize_bloc.dart';
 import 'package:neirodev/screens/neirodev/bottom_navigation_cubit.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class Neirodev extends StatelessWidget {
   const Neirodev({super.key, required this.child});
